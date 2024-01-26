@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="System.ComponentModel.Composition" Version="8.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Application\Application.DataTransferObjects\Application.DataTransferObjects.csproj" />
+		<ProjectReference Include="..\..\Application\Application.Services\Application.Services.csproj" />
+		<ProjectReference Include="..\Infrastructure.DatabaseConnection\Infrastructure.DatabaseConnection.csproj" />
+	</ItemGroup>
+</Project>
