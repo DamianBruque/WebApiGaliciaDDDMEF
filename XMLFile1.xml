@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<RiskInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" IsDirty="true" RecordType="2" RecordTypeEnum="Póliza" LineOfBusiness="9" ProductCode="1800" PolicyID="1848493" CertificateID="203" IssueDate="2019-10-01T00:00:00" PaymentFrequency="5" PaymentFrequencyEnum="Monthly" EffectiveDate="2019-10-01T00:00:00" AgreementCode="2135" AgreementDiscountCode="2135" CommerceNumber="2135" Currency="1" CoverageModule="1">
+  <Images/>
+  <AGREEMENT_POL RecordEffectiveDate="2019-10-01T00:00:00" ClientID="00030707213708" AgreementCode="2135" CommerceNumber="2135"/>
+  <Beneficiaries/>
+  <HistoryStatesOfCertificates/>
+  <Clauses/>
+  <Commissions>
+    <Commission IsNew="true" IsDirty="true" ProducerType="99" ProducerCode="220030401" RecordEffectiveDate="2019-06-21T00:00:00" CommissionType="4" UpdateTimeStamp="2019-10-05T00:00:00-03:00" Share="100" UserCode="1" CommissionPlan="1"/>
+  </Commissions>
+  <Coverages>
+    <Coverage IsNew="true" IsDirty="true" RecordType="2" RecordTypeEnum="Póliza" LineOfBusiness="9" ProductCode="1800" PolicyID="1848493" CoverageModule="1" CoverageCode="353" ClientID="00000036722601" RecordEffectiveDate="2019-10-01T00:00:00" ClientRole="2" ClientRoleEnum="PrimaryInsured" CoverageChangeIndicator="3" FranchiseOrDeductibleIndicator="1" Currency="1" RatePerThousand="65.88" UnitsOfWaitingPeriod="1" CoverageAniversaryDate="2020-10-01T00:00:00" dSeekTar="2019-10-01T00:00:00" TypeOfPremiumRecalculation="8" TypeOfPremiumRecalculationEnum="Always" OriginalRatePerThousand="65.88" GrossNetRate="65.88">
+      <SpecificRiskCoverage>
+        <SpecificRiskCoverage IsNew="true" IsDirty="true" RecordType="2" RecordTypeEnum="Póliza" LineOfBusiness="9" ProductCode="1800" PolicyID="1848493" CoverageModule="1" CoverageCode="353" ClientID="00000036722601" RecordEffectiveDate="2019-10-01T00:00:00" CodeRiskType="11" CodeSpecificRisk="1" InsuredAmount="10000" Currency="1" ExcludingRiskIndicatorPerClaim="2" IndicatorAffectedRisk="2" Description="Xiaomi-Mi A2 Lite-867085041957336">
+          <DetailSpecificRiskCoverage>
+            <DetailSpecificRiskCoverage RecordType="2" RecordTypeEnum="Póliza" LineOfBusiness="9" ProductCode="1800" PolicyID="1848493" CoverageModule="1" CoverageCode="353" ClientID="00000036722601" RecordEffectiveDate="2019-10-01T00:00:00" CodeRiskType="11" CodeSpecificRisk="1" CodeDefinitionType="1" TextValue="Xiaomi" DateValue="2019-10-05T00:00:00-03:00"/>
+            <DetailSpecificRiskCoverage RecordType="2" RecordTypeEnum="Póliza" LineOfBusiness="9" ProductCode="1800" PolicyID="1848493" CoverageModule="1" CoverageCode="353" ClientID="00000036722601" RecordEffectiveDate="2019-10-01T00:00:00" CodeRiskType="11" CodeSpecificRisk="1" CodeDefinitionType="2" TextValue="Mi A2 Lite" DateValue="2019-10-05T00:00:00-03:00"/>
+            <DetailSpecificRiskCoverage RecordType="2" RecordTypeEnum="Póliza" LineOfBusiness="9" ProductCode="1800" PolicyID="1848493" CoverageModule="1" CoverageCode="353" ClientID="00000036722601" RecordEffectiveDate="2019-10-01T00:00:00" CodeRiskType="11" CodeSpecificRisk="1" CodeDefinitionType="13" TextValue="867085041957336" DateValue="2019-10-05T00:00:00-03:00"/>
+          </DetailSpecificRiskCoverage>
+        </SpecificRiskCoverage>
+      </SpecificRiskCoverage>
+    </Coverage>
+  </Coverages>
+  <CurrencyPolicies>
+    <CurrencyPolicy IsNew="true" IsDirty="true" Currency="1"/>
+  </CurrencyPolicies>
+  <AutomaticPaymentPolicy BankAccount="0123456789012" BankCode="20" DirectDebitType="1" AuthorizationNumber="0" CurrencyCode="1" CBU="1234567890123456789012" CommerceNumber="2135"/>
+  <DiscountExtraPremiumTaxOfPolicies>
+    <DiscountExtraPremiumTaxOfPolicy ExtraPremiumDiscountOrTaxCode="10" Currency="1" AcceptedSurcharge="true" Percentage="11">
+      <Notes/>
+    </DiscountExtraPremiumTaxOfPolicy>
+    <DiscountExtraPremiumTaxOfPolicy ExtraPremiumDiscountOrTaxCode="11" Currency="1" AcceptedSurcharge="true">
+      <Notes/>
+    </DiscountExtraPremiumTaxOfPolicy>
+    <DiscountExtraPremiumTaxOfPolicy ExtraPremiumDiscountOrTaxCode="101" Currency="1" AcceptedSurcharge="true">
+      <Notes/>
+    </DiscountExtraPremiumTaxOfPolicy>
+    <DiscountExtraPremiumTaxOfPolicy ExtraPremiumDiscountOrTaxCode="102" Currency="1" AcceptedSurcharge="true">
+      <Notes/>
+    </DiscountExtraPremiumTaxOfPolicy>
+    <DiscountExtraPremiumTaxOfPolicy ExtraPremiumDiscountOrTaxCode="103" Currency="1" AcceptedSurcharge="true">
+      <Notes/>
+    </DiscountExtraPremiumTaxOfPolicy>
+    <DiscountExtraPremiumTaxOfPolicy ExtraPremiumDiscountOrTaxCode="104" Currency="1" AcceptedSurcharge="true">
+      <Notes/>
+    </DiscountExtraPremiumTaxOfPolicy>
+    <DiscountExtraPremiumTaxOfPolicy ExtraPremiumDiscountOrTaxCode="105" Currency="1" AcceptedSurcharge="true">
+      <Notes/>
+    </DiscountExtraPremiumTaxOfPolicy>
+    <DiscountExtraPremiumTaxOfPolicy ExtraPremiumDiscountOrTaxCode="106" Currency="1" AcceptedSurcharge="true">
+      <Notes/>
+    </DiscountExtraPremiumTaxOfPolicy>
+    <DiscountExtraPremiumTaxOfPolicy ExtraPremiumDiscountOrTaxCode="107" Currency="1" AcceptedSurcharge="true">
+      <Notes/>
+    </DiscountExtraPremiumTaxOfPolicy>
+  </DiscountExtraPremiumTaxOfPolicies>
+  <Franchises/>
+  <FundsOfMainPolicy/>
+  <GuarranteedSavingPols/>
+  <IndexInformationAppliedToThePolicys/>
+  <ExtraPremiumDiscountByInsureds/>
+  <DocumentRequestedLifePolicies/>
+  <SpecificationsForLifeInsurances/>
+  <Modules>
+    <Module IsNew="true" IsDirty="true" RecordType="2" RecordTypeEnum="Póliza" LineOfBusiness="9" ProductCode="1800" PolicyID="1848493" CoverageModule="1" RecordEffectiveDate="2019-10-01T00:00:00" ChangesAreAllowed="2" Currency="1" InheritCharacteristicsModuleRemovedIndicator="2"/>
+  </Modules>
+  <EntryPolicyInvestmentFunds/>
+  <InsuredPersonsByCoverages/>
+  <OutstandingBillingTransactions/>
+  <PolicyHistories/>
+  <PropertyInsureds/>
+  <PolicyProtectionElements/>
+  <ReinsuranceDistributions/>
+  <Requests/>
+  <Roles>
+    <Role IsNew="true" IsDirty="true" ClientRole="1" ClientRoleEnum="PolicyOwner" ClientID="00030707213708" BirthDate="2013-11-01T00:00:00" SmokerIndicator="3" SmokerIndicatorEnum="Uninformed" RiskType="3" RiskTypeEnum="StandardNonSmoker">
+      <Client ClientID="00030707213708" BirthDate="2013-11-01T00:00:00" UpdateTimeStamp="2019-10-01T09:45:05" DateOfIngress="2019-06-19T00:00:00" SmokerIndicator="3" SmokerIndicatorEnum="Uninformed" UserCode="370" Emplqua="65" TypeOfPerson="2" TypeOfPersonEnum="Company" LegalName="COBRANZAS REGIONALES S.A." Speciality="651910" CompanyType="3" CompleteClientName="NARANJA X">
+        <Notes/>
+        <Images/>
+        <ClientBankAccounts/>
+        <ClientDocuments>
+          <ClientDocument ClientID="00030707213708" DocumentType="2" DocumentNUmber="30-70721370-8" IdIssueDate="2019-05-05T00:00:00" UpdateTimeStamp="2019-06-19T10:48:36" UserCode="469" DocumentClass="2"/>
+        </ClientDocuments>
+        <GrossRevenueOfTheClientCollection>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="1" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T09:32:57" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="2" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:35:09" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="3" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T09:35:29" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="4" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:35:29" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="5" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:35:58" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="6" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:36:43" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="7" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:37:09" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="8" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:37:30" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="9" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:37:44" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="10" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:38:00" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="11" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:38:24" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="12" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:38:48" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="13" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:39:21" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="14" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:39:32" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="15" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:39:46" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="16" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:39:59" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="17" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:40:13" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="18" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:40:56" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="19" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:41:10" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="20" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:41:26" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="21" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:41:41" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="22" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:41:53" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="23" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:42:06" User="469"/>
+          <GrossRevenueOfTheClient ClientCode="00030707213708" Province="24" Inscription="1" PerceptionAgent="2" WithHoldingAgentIndicator="2" IBBExemptionInd="2" FromRateCM05="2002-03-01T00:00:00" ComputersDate="2019-06-24T12:42:28" User="469"/>
+        </GrossRevenueOfTheClientCollection>
+        <ClientTaxSituation ClientCode="00030707213708" ProfitSituation="1" ProfitRetainedCondition="2" PercentExemptionOfProfitTax="100" FromDateExemption="2019-04-01T00:00:00" DateToExemption="2020-03-31T00:00:00" RegimeProfits="3" ProfitsRetentionAgentIndicator="1" SIJPSituation="1" Association="1" InscriptionNumber="3070721370" ConditionGrossIncome="3" ItemCodeForExemption="2" VATSituation="5" VatRetentionAgentindicator="1" CollectionAgentVAT="1" VATCondition="2" PercentVATException="100" FromDateexemptionVAT="2019-03-01T00:00:00" ToDateexemptionVAT="2019-07-31T00:00:00" ComputersDate="2019-07-31T08:47:24" User="469"/>
+        <StampsConditionOfTheClientCollection/>
+        <WindowsClient IsDirty="true" ClientID="00030707213708" RecordEffectiveDate="2019-10-01T00:00:00" UpdateTimeStamp="2019-10-01T09:45:05" UserCode="370" ContentIndicators="22121211122211" WindowsVector="BC001J  SCA101  BC014   BC013   BC016   BC015   SCA2-9  SCA10-2 BC007M  BC6000  BC965   BC966   BC967   BC968" RecordEffectiveDateOld="2019-10-01T00:00:00"/>
+        <CommissionAgreements/>
+        <ClientContactCompanies/>
+        <CreditCards/>
+        <ClientFinantialInformations/>
+        <ClientHobbies/>
+        <ClientsRelationships/>
+        <ClientSports/>
+        <Address/>
+        <Errors/>
+      </Client>
+    </Role>
+    <Role IsNew="true" IsDirty="true" ClientRole="2" ClientRoleEnum="PrimaryInsured" ClientID="00000036722601" BirthDate="1988-06-21T00:00:00" Gender="2" GenderEnum="Male" SmokerIndicator="3" SmokerIndicatorEnum="Uninformed" RiskType="3" RiskTypeEnum="StandardNonSmoker">
+      <Client ClientID="00000036722601" CivilStatus="2" BirthDate="1988-06-21T00:00:00" FirstName="Francisco" LastName="lara" UpdateTimeStamp="2019-09-18T14:37:22" DateOfIngress="2019-09-01T00:00:00" Gender="2" GenderEnum="Male" SmokerIndicator="3" SmokerIndicatorEnum="Uninformed" UserCode="9998" TypeOfPerson="1" TypeOfPersonEnum="Person" Nationality="1" CheckDigit="3" CompleteClientName="lara , Francisco">
+        <Notes/>
+        <Images/>
+        <ClientBankAccounts/>
+        <ClientDocuments>
+          <ClientDocument ClientID="00000036722601" DocumentType="5" DocumentNUmber="36722601" UpdateTimeStamp="2019-09-18T14:37:22" UserCode="9998" DocumentClass="2"/>
+        </ClientDocuments>
+        <GrossRevenueOfTheClientCollection/>
+        <StampsConditionOfTheClientCollection/>
+        <WindowsClient IsDirty="true" ClientID="00000036722601" RecordEffectiveDate="2019-09-01T00:00:00" UpdateTimeStamp="2019-09-18T14:37:22" UserCode="9998" ContentIndicators="2211111121111" WindowsVector="BC001N  SCA101  BC013   BC016   BC015   SCA2-9  SCA10-2 BC007M  BC6000  BC965   BC966   BC967   BC968" RecordEffectiveDateOld="2019-09-01T00:00:00"/>
+        <CommissionAgreements/>
+        <ClientContactCompanies/>
+        <CreditCards/>
+        <ClientFinantialInformations/>
+        <ClientHobbies/>
+        <ClientsRelationships/>
+        <ClientSports/>
+        <Address/>
+        <Errors/>
+      </Client>
+    </Role>
+  </Roles>
+  <BasicInsuredAmounts/>
+  <ExcludedIllnessInHealthPolicies/>
+  <Theft PreBillingIndicator="2"/>
+  <SavingAccountPolicyMasters/>
+  <Policy RecordType="2" RecordTypeEnum="Póliza" LineOfBusiness="9" ProductCode="1800" PolicyID="1848493" SourceType="1" TypeOfBillForGroups="2" TypeOfReinsuranceForGroups="1" TypeOfRenewalForGroups="2" CommissionType="3" CommissionTypeEnum="NoCommission" ReportingValuesIndicator="0" DirectDebitBills="1" IndexationType="4" PolicyType="2" PolicyTypeEnum="Group" AutomaticRenewal="1" OptionToApplyIndexation="3" PolicyStatus="4" PolicyStatusEnum="InForce" OptionForClausesInGroups="4" OptionForClausesInGroupsEnum="PerCertificate" OptionForExtraPremiumAndDiscountsInGroups="4" OptionForExtraPremiumAndDiscountsInGroupsEnum="PerCertificate" OptionOfCoveragesForGroups="4" OptionOfCoveragesForGroupsEnum="PerCertificate" LastModificationDate="2019-09-01T00:00:00" UpdateTimeStamp="2019-10-05T09:27:01" OriginalEffectiveDate="2019-09-01T00:00:00" EffectiveDate="2019-09-01T00:00:00" EndingDate="2020-09-01T00:00:00" IssueDate="2019-09-13T00:00:00" NextBilling="2019-10-01T00:00:00" InsuredAmount="100000" AnnualPremium="6588" PaymentFrequency="5" PaymentFrequencyEnum="Monthly" MainProducer="220030401" LastCertificateIDAssigned="6" MinimumNumberOfCertificates="1" Transaction="3" LastHistoryEntryNumber="8" Copies="3" DaysOfNoticeForCancellation="30" BranchOffice="1" BranchOfficeAdministrating="1" RatingTable="1" UserCode="9998" BillingOptions="3" Agreement="2135" Agency="1" OfficeCode="1" ProducersForGroupOrByCertificate="1" CriteriaToDetermineDuplicationInUpload="1" CriteriaToDetermineDuplicationInUploadEnum="ByClientId" ReceiptOfGenerationIndicator="1" TypeOfMedicalEvaluation="3" TypeOfCalculationOfProvincialTaxes="2" ProvincialTaxesHolder="2" AdjustmentApplicationType="3">
+    <RiskInformations/>
+    <Client_tmps/>
+    <CoInsurances/>
+    <CoverageGroups/>
+    <CoveragePolicies/>
+    <DiscountExtraPremiumTaxInPolicyLevels/>
+    <Groups/>
+    <CoveragesWithCalculatedPremium>
+      <CoverageWithCalculatedPremium Change="1" FranchiseOrDeductibleIndicator="1" Waittype="1" Description="Robo de celular TRM" Required="1" SelectedByDefault="true" TypeOfChangesAllowedOnInsuredAmount="1" TypeOfChangesAllowedOnPremium="4" Effecdate="2019-10-01T00:00:00" InsuredAmount="10000" AnnualPremium="658.80" RatePerThousand="65.88" FixedRate="65.88" CoverageModule="1" CoverageCode="353" Currency="1" Key="201910050927082595402" FreeInsuredAmount="true" MaximumInsuredAmount="20000" MinimumInsuredAmount="5000" AddsToObtainInsuredAmount="true" TarifCurr="1" ClientID="00000036722601" CoverageAniversaryDate="2020-10-01T00:00:00" Seektar="2019-10-01T00:00:00" ClientRole="2" ClientRoleEnum="PrimaryInsured" TypeOfPremiumRecalculation="8" Defaultic="1" Requirec="true" OriginalInsuredAmount="10000" OriginalAnnualPremium="658.80" OriginalRatePerThousand="65.88" RoutineForCalculationOfInsuredAmount="CALCAPSPECRI" GenCurrency="1" Gender="Male" RoutineTypeOfInsuredAmount="1"/>
+    </CoveragesWithCalculatedPremium>
+  </Policy>
+  <Premiums/>
+  <Errors/>
+  <Address>
+    <Address IsNew="true" IsDirty="true" RecordOwner="1" TypeOfAddress="1" TypeOfAddressEnum="Business" Street="La Tablada" RecordType="2" RecordTypeEnum="Póliza" PolicyID="1848493" ZipCodeARG="5000" Country="54" LineOfBusiness="9" ProductCode="1800" CityCode="4560" BuildingNumber="451" MunicipalityCode="4560" CompleteAddress="La Tablada 451" StateOrProvince="4">
+      <Phones/>
+    </Address>
+  </Address>
+  <IdStruct>55</IdStruct>
+  <CommercialStructureAppliedByEvent IsNew="true" IsDirty="true" CommercialStructureID="55" OwnerOfTheRecord="1" EffectiveDate="2019-10-01T00:00:00" ClientID="00000036722601" RecordType="2" CodeLineBusiness="9" ProductCode="1800" EntryNumberOfOriginalNumber="1" EntryChannel="2" CodeOfCommercialSet="69" ComputerDate="2019-10-05T00:00:00-03:00">
+    <AdditionalInformationByCommercialStructureApplied/>
+  </CommercialStructureAppliedByEvent>
+</RiskInformation>
