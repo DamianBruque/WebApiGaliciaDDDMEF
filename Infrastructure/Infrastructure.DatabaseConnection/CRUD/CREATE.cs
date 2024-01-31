@@ -1,15 +1,20 @@
 ﻿
 
 using Domain.Contracts.Interface.Repositories;
+using Infrastructure.DatabaseConnection.DatabaseAccess;
 using System.ComponentModel.Composition;
 
 namespace Infrastructure.DatabaseConnection.CRUD;
 
-[Export(typeof(IRepositoryMethod<>))]
-public class CREATE<T> : IRepositoryMethod<T> where T : class
+[Export(typeof(IRepositoryMethod))]
+public class CREATE : IRepositoryMethod
 {
-    
-    public Task<T> ExecuteMethod(T entity)
+    private readonly ProjectContext context;
+    public CREATE(ProjectContext projectContext)
+    {
+        context = projectContext;
+    }
+    public Task<object> ExecuteMethod(object entity)
     {
         throw new NotImplementedException();
     }
