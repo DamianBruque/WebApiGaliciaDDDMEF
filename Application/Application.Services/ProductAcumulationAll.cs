@@ -30,21 +30,6 @@ public class ProductAccumulationAll
         var UnderwritingManager = new InMotionGIT.Underwriting.Proxy.Manager();
         List<InMotionGIT.Underwriting.Contracts.UnderwritingCase> UnderWritingCaseList;
         bool groupIndicator = false;
-        #endregion
-
-        if (underwritingCase.RiskInformation.Modules.IsNotEmpty() && underwritingCase.RiskInformation.Modules.Count > 0)
-        {
-            foreach (var moduleItem in underwritingCase.RiskInformation.Modules)
-            {
-                ProcessModules(underwritingCase, ref groupIndicator, ref SummaryOfPoliciesByClientClassCollection, ref UnderWritingCaseList, ref UnderwritingManager, ref UnderWritingCasewithClient, ref requirementStatus, ref commentary, ref errors, ref requirement,ref moduleItem)
-            }
-        }
-        return requirement;
-    }
-
-    private void ProcessModules(InMotionGIT.Underwriting.Contracts.UnderwritingCase underwritingCase, ref bool groupIndicator, ref InMotionGIT.Argentina.Entity.Contracts.SummaryOfPoliciesByClientClassCollection SummaryOfPoliciesByClientClassCollection, ref List<InMotionGIT.Underwriting.Contracts.UnderwritingCase> UnderWritingCaseList, ref InMotionGIT.Underwriting.Proxy.Manager UnderwritingManager, ref InMotionGIT.Underwriting.Contracts.UnderwritingCase UnderWritingCasewithClient, ref EnumRequirementStatus requirementStatus, ref string commentary, ref Common.Contracts.Errors.ErrorCollection errors, ref bool requirement, ref Policy.Entity.Contracts moduleItem)
-    {
-        #region Atributos
         bool blnValid = true;
         InMotionGIT.Policy.Entity.Contracts.RoleCollection roles = null;
         Policy.Entity.Contracts.RiskInformation risk = null;
@@ -68,101 +53,112 @@ public class ProductAccumulationAll
         bool resultVT7 = false;
         long policyID = 0;
         InMotionGIT.Product.Entity.Contracts.GroupProductDetailCollection groupProductDetailCollection;
+        long certificateID = 0;
         InMotionGIT.CommercialStructure.Proxy.client.StrucProductCollection strucProductsCollection; //---
         var commercialStructureProxy = new InMotionGIT.CommercialStructure.Proxy.client.StructProductsManagerClient(); //---
-        long certificateID = 0;
         #endregion
-        foreach (var module in underwritingCase.RiskInformation.Modules)
+
+        if (underwritingCase.RiskInformation.Modules.IsNotEmpty() && underwritingCase.RiskInformation.Modules.Count > 0)
         {
-            strucProductsCollection = commercialStructureProxy.RetrieveStrucProductByLineOfBusinessProductModule(underwritingCase.RiskInformation.CommercialStructureAppliedByEvent.CommercialStructureID, underwritingCase.RiskInformation.LineOfBusiness, underwritingCase.RiskInformation.ProductCode, underwritingCase.RiskInformation.CommercialStructureAppliedByEvent.EffectiveDate, moduleItem.CoverageModule);
-            if (strucProductsCollection.IsNotEmpty() && strucProductsCollection.Count > 0)
+            foreach (var moduleItem in underwritingCase.RiskInformation.Modules)
             {
-                foreach (var strucProductItem in strucProductsCollection)
+                
+                foreach (var module in underwritingCase.RiskInformation.Modules)
                 {
-                    if (strucProductItem.GroupCode.IsNotEmpty() && strucProductItem.GroupCode > 0)
+                    strucProductsCollection = commercialStructureProxy.RetrieveStrucProductByLineOfBusinessProductModule(underwritingCase.RiskInformation.CommercialStructureAppliedByEvent.CommercialStructureID, underwritingCase.RiskInformation.LineOfBusiness, underwritingCase.RiskInformation.ProductCode, underwritingCase.RiskInformation.CommercialStructureAppliedByEvent.EffectiveDate, moduleItem.CoverageModule);
+                    if (strucProductsCollection.IsNotEmpty() && strucProductsCollection.Count > 0)
                     {
-                        groupProductDetailCollection = InMotionGIT.Product.Entity.Contracts.GroupProductDetail.Retrieve(strucProductItem.GroupCode, DateTime.Today, string.Empty);
-                        if (groupProductDetailCollection.IsNotEmpty() && groupProductDetailCollection.Count > 0)
+                        ProcessStructProductCollection(strucProductsCollection, underwritingCase, groupIndicator, SummaryOfPoliciesByClientClassCollection);
+                        foreach (var strucProductItem in strucProductsCollection)
                         {
-                            groupIndicator = true;
-                        }
-                    }
-                    CliDocument = (from r in underwritingCase.RiskInformation.PrimaryInsured.Client.ClientDocuments where r.DocumentType == 5 || r.DocumentType == 1 select r).FirstOrDefault();   //HAB-4517
-                    CliDocument.DocumentNUmber = ArgentinaClient.FormatDocumentNumber(CliDocument.DocumentNUmber, CliDocument.DocumentType);
-                    CliDocumentCollection = InMotionGIT.Client.Entity.Contracts.ClientDocument.RetrieveByCondition(string.Format("WHERE NTYPCLIENTDOC = {0} AND SCLINUMDOCU  = '{1}'", CliDocument.DocumentType, CliDocument.DocumentNUmber), DateTime.Today, InMotionGIT.Client.Entity.Contracts.ClientDocument.FilterSetting(InMotionGIT.Client.Entity.Contracts.Enumerations.EnumClientDocumentChild.None));
-                    if (!groupIndicator)
-                    {
-                        ProcessNonGroupIndicator(underwritingCase, CliDocumentCollection, ref clientFind, ref policyID, ref certificateID, ref SummaryOfPoliciesByClientClassCollection, ref UnderWritingCaseList, ref UnderwritingManager, ref UnderWritingCasewithClient);
-                    }
-                    else
-                    {
-                        ProcessGroupIndicator(underwritingCase, CliDocumentCollection, groupProductDetailCollection, ref clientFind, ref policyID, ref certificateID, ref SummaryOfPoliciesByClientClassCollection, ref UnderWritingCaseList, ref UnderwritingManager, ref UnderWritingCasewithClient);
-                    }
-
-                    try
-                    {
-                        using (var ServiceVT1 = new ServiceReference.ServiceSoapClient())
-                        {
-                            result = ServiceVT1.LeerCumulosPorProducto(CliDocument.DocumentType, CliDocument.DocumentNUmber, underwritingCase.RiskInformation.PrimaryInsured.Client.Gender, underwritingCase.RiskInformation.EffectiveDate.ToString("ddMMyyyy"), underwritingCase.RiskInformation.LineOfBusiness, underwritingCase.RiskInformation.ProductCode);
-                        }
-
-                        if (!string.IsNullOrEmpty(result))
-                        {
-                            var xmlDocument = XDocument.Parse(result);
-                            if (xmlDocument.Descendants("xml").Elements("cantidadRegistros").Value != "")
+                            if (strucProductItem.GroupCode.IsNotEmpty() && strucProductItem.GroupCode > 0)
                             {
-                                countResultVT1 = Convert.ToInt32(xmlDocument.Descendants("xml").Elements("cantidadRegistros").Value);
-                                detailsResultVT1 = xmlDocument.Descendants("xml").Elements("detalleRegistros").Value;
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-
-                    }
-
-                    if (SummaryOfPoliciesByClientClassCollection.IsNotEmpty())
-                    {
-                        countResultVT7 = SummaryOfPoliciesByClientClassCollection.Count;
-                    }
-                    if (countResultVT7 + countResultVT1 >= strucProductItem.MaximunAccumulation.IfEmpty(1))
-                    {
-                        if (countResultVT7 > 0)
-                        {
-                            foreach (var lstCoverByPolicyItem in SummaryOfPoliciesByClientClassCollection)
-                            {
-                                if (lstCoverByPolicyItem.Status == 4 || lstCoverByPolicyItem.Status == 5)
+                                groupProductDetailCollection = InMotionGIT.Product.Entity.Contracts.GroupProductDetail.Retrieve(strucProductItem.GroupCode, DateTime.Today, string.Empty);
+                                if (groupProductDetailCollection.IsNotEmpty() && groupProductDetailCollection.Count > 0)
                                 {
-                                    requested = true;
-                                    resultVT7 = true;
-                                    productAcumulate += (productAcumulate == "" ? "" : " /") + (lstCoverByPolicyItem.PolicyID > 0 ? "Cert/Pol: " + lstCoverByPolicyItem.LineOfBusiness.ToString() + "/" + lstCoverByPolicyItem.ProductCode.ToString() + "/" + lstCoverByPolicyItem.PolicyID.ToString() + "/" + lstCoverByPolicyItem.CertificateID.ToString() : "Sol: " + lstCoverByPolicyItem.CaseNumber.ToString()) +
-                                                        (lstCoverByPolicyItem.PolicyID > 0 ? " Vigencia " + lstCoverByPolicyItem.RecordEffectiveDate.ToString("dd/MM/yyyy") + "-" + lstCoverByPolicyItem.EndingDate.ToString("dd/MM/yyyy") : " Creación " + lstCoverByPolicyItem.RecordEffectiveDate.ToString("dd/MM/yyyy"));
+                                    groupIndicator = true;
                                 }
                             }
-                        }
-                        if (countResultVT1 > 0)
-                        {
-                            requested = true;
-                        }
-                        if (requested)
-                        {
-                            requirementStatus = EnumRequirementStatus.Rejected;
-                            commentary = "Requerimiento rechazado por cúmulo. " + (resultVT7 ? " VT7: " + productAcumulate : "") + (countResultVT1 > 0 ? " VT1: " + detailsResultVT1 : "");
-                            requirement = true;
-                        }
-                        else
-                        {
-                            requirementStatus = EnumRequirementStatus.None;
-                            commentary = "";
-                            requirement = false;
+                            CliDocument = (from r in underwritingCase.RiskInformation.PrimaryInsured.Client.ClientDocuments where r.DocumentType == 5 || r.DocumentType == 1 select r).FirstOrDefault();   //HAB-4517
+                            CliDocument.DocumentNUmber = ArgentinaClient.FormatDocumentNumber(CliDocument.DocumentNUmber, CliDocument.DocumentType);
+                            CliDocumentCollection = InMotionGIT.Client.Entity.Contracts.ClientDocument.RetrieveByCondition(string.Format("WHERE NTYPCLIENTDOC = {0} AND SCLINUMDOCU  = '{1}'", CliDocument.DocumentType, CliDocument.DocumentNUmber), DateTime.Today, InMotionGIT.Client.Entity.Contracts.ClientDocument.FilterSetting(InMotionGIT.Client.Entity.Contracts.Enumerations.EnumClientDocumentChild.None));
+                            if (!groupIndicator)
+                            {
+                                ProcessNonGroupIndicator(ref underwritingCase, ref CliDocumentCollection, ref clientFind, ref policyID, ref certificateID, ref SummaryOfPoliciesByClientClassCollection, ref UnderWritingCaseList, ref UnderwritingManager, ref UnderWritingCasewithClient);
+                            }
+                            else
+                            {
+                                ProcessGroupIndicator(ref underwritingCase, ref CliDocumentCollection, groupProductDetailCollection, ref clientFind, ref policyID, ref certificateID, ref SummaryOfPoliciesByClientClassCollection, ref UnderWritingCaseList, ref UnderwritingManager, ref UnderWritingCasewithClient);
+                            }
+
+                            try
+                            {
+                                using (var ServiceVT1 = new ServiceReference.ServiceSoapClient())
+                                {
+                                    result = ServiceVT1.LeerCumulosPorProducto(CliDocument.DocumentType, CliDocument.DocumentNUmber, underwritingCase.RiskInformation.PrimaryInsured.Client.Gender, underwritingCase.RiskInformation.EffectiveDate.ToString("ddMMyyyy"), underwritingCase.RiskInformation.LineOfBusiness, underwritingCase.RiskInformation.ProductCode);
+                                }
+
+                                if (!string.IsNullOrEmpty(result))
+                                {
+                                    var xmlDocument = XDocument.Parse(result);
+                                    if (xmlDocument.Descendants("xml").Elements("cantidadRegistros").Value != "")
+                                    {
+                                        countResultVT1 = Convert.ToInt32(xmlDocument.Descendants("xml").Elements("cantidadRegistros").Value);
+                                        detailsResultVT1 = xmlDocument.Descendants("xml").Elements("detalleRegistros").Value;
+                                    }
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+
+                            if (SummaryOfPoliciesByClientClassCollection.IsNotEmpty())
+                            {
+                                countResultVT7 = SummaryOfPoliciesByClientClassCollection.Count;
+                            }
+                            if (countResultVT7 + countResultVT1 >= strucProductItem.MaximunAccumulation.IfEmpty(1))
+                            {
+                                if (countResultVT7 > 0)
+                                {
+                                    foreach (var lstCoverByPolicyItem in SummaryOfPoliciesByClientClassCollection)
+                                    {
+                                        if (lstCoverByPolicyItem.Status == 4 || lstCoverByPolicyItem.Status == 5)
+                                        {
+                                            requested = true;
+                                            resultVT7 = true;
+                                            productAcumulate += (productAcumulate == "" ? "" : " /") + (lstCoverByPolicyItem.PolicyID > 0 ? "Cert/Pol: " + lstCoverByPolicyItem.LineOfBusiness.ToString() + "/" + lstCoverByPolicyItem.ProductCode.ToString() + "/" + lstCoverByPolicyItem.PolicyID.ToString() + "/" + lstCoverByPolicyItem.CertificateID.ToString() : "Sol: " + lstCoverByPolicyItem.CaseNumber.ToString()) +
+                                                                (lstCoverByPolicyItem.PolicyID > 0 ? " Vigencia " + lstCoverByPolicyItem.RecordEffectiveDate.ToString("dd/MM/yyyy") + "-" + lstCoverByPolicyItem.EndingDate.ToString("dd/MM/yyyy") : " Creación " + lstCoverByPolicyItem.RecordEffectiveDate.ToString("dd/MM/yyyy"));
+                                        }
+                                    }
+                                }
+                                if (countResultVT1 > 0)
+                                {
+                                    requested = true;
+                                }
+                                if (requested)
+                                {
+                                    requirementStatus = EnumRequirementStatus.Rejected;
+                                    commentary = "Requerimiento rechazado por cúmulo. " + (resultVT7 ? " VT7: " + productAcumulate : "") + (countResultVT1 > 0 ? " VT1: " + detailsResultVT1 : "");
+                                    requirement = true;
+                                }
+                                else
+                                {
+                                    requirementStatus = EnumRequirementStatus.None;
+                                    commentary = "";
+                                    requirement = false;
+                                }
+                            }
                         }
                     }
                 }
             }
         }
+        return requirement;
     }
 
-    private void ProcessNonGroupIndicator(InMotionGIT.Underwriting.Contracts.UnderwritingCase underwritingCase, InMotionGIT.Client.Entity.Contracts.ClientDocumentCollection CliDocumentCollection, ref bool clientFind, ref long policyID, ref long certificateID, ref InMotionGIT.Argentina.Entity.Contracts.SummaryOfPoliciesByClientClassCollection SummaryOfPoliciesByClientClassCollection, ref List<InMotionGIT.Underwriting.Contracts.UnderwritingCase> UnderWritingCaseList, ref InMotionGIT.Underwriting.Proxy.Manager UnderwritingManager, ref InMotionGIT.Underwriting.Contracts.UnderwritingCase UnderWritingCasewithClient)
+
+    private void ProcessNonGroupIndicator(ref InMotionGIT.Underwriting.Contracts.UnderwritingCase underwritingCase, ref InMotionGIT.Client.Entity.Contracts.ClientDocumentCollection CliDocumentCollection, ref bool clientFind, ref long policyID, ref long certificateID, ref InMotionGIT.Argentina.Entity.Contracts.SummaryOfPoliciesByClientClassCollection SummaryOfPoliciesByClientClassCollection, ref List<InMotionGIT.Underwriting.Contracts.UnderwritingCase> UnderWritingCaseList, ref InMotionGIT.Underwriting.Proxy.Manager UnderwritingManager, ref InMotionGIT.Underwriting.Contracts.UnderwritingCase UnderWritingCasewithClient)
     {
         if (CliDocumentCollection.Count > 0)
         {
@@ -265,7 +261,7 @@ public class ProductAccumulationAll
         }
     }
 
-    private void ProcessGroupIndicator(InMotionGIT.Underwriting.Contracts.UnderwritingCase underwritingCase, InMotionGIT.Client.Entity.Contracts.ClientDocumentCollection CliDocumentCollection, InMotionGIT.Product.Entity.Contracts.GroupProductDetailCollection groupProductDetailCollection, ref bool clientFind, ref long policyID, ref long certificateID, ref InMotionGIT.Argentina.Entity.Contracts.SummaryOfPoliciesByClientClassCollection SummaryOfPoliciesByClientClassCollection, ref List<InMotionGIT.Underwriting.Contracts.UnderwritingCase> UnderWritingCaseList, ref InMotionGIT.Underwriting.Proxy.Manager UnderwritingManager, ref InMotionGIT.Underwriting.Contracts.UnderwritingCase UnderWritingCasewithClient)
+    private void ProcessGroupIndicator(ref InMotionGIT.Underwriting.Contracts.UnderwritingCase underwritingCase, ref InMotionGIT.Client.Entity.Contracts.ClientDocumentCollection CliDocumentCollection, InMotionGIT.Product.Entity.Contracts.GroupProductDetailCollection groupProductDetailCollection, ref bool clientFind, ref long policyID, ref long certificateID, ref InMotionGIT.Argentina.Entity.Contracts.SummaryOfPoliciesByClientClassCollection SummaryOfPoliciesByClientClassCollection, ref List<InMotionGIT.Underwriting.Contracts.UnderwritingCase> UnderWritingCaseList, ref InMotionGIT.Underwriting.Proxy.Manager UnderwritingManager, ref InMotionGIT.Underwriting.Contracts.UnderwritingCase UnderWritingCasewithClient)
     {
         foreach (var groupProductDetail in groupProductDetailCollection)
         {
